@@ -13,6 +13,9 @@
 		444DB2A51C8FD8B1002676DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444DB2A31C8FD8B1002676DD /* Main.storyboard */; };
 		444DB2A71C8FD8B1002676DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 444DB2A61C8FD8B1002676DD /* Assets.xcassets */; };
 		444DB2AA1C8FD8B1002676DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444DB2A81C8FD8B1002676DD /* LaunchScreen.storyboard */; };
+		444DB2B51C8FE0EF002676DD /* FGApplePayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 444DB2B41C8FE0EF002676DD /* FGApplePayHelper.m */; };
+		444DB2B81C9004A4002676DD /* FGApplePayConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 444DB2B71C9004A4002676DD /* FGApplePayConstant.m */; };
+		444DB2BE1C90094E002676DD /* FGPKPaymentRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 444DB2BD1C90094E002676DD /* FGPKPaymentRequestFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,14 @@
 		444DB2A61C8FD8B1002676DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		444DB2A91C8FD8B1002676DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		444DB2AB1C8FD8B1002676DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		444DB2B11C8FDFC4002676DD /* AppPayDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AppPayDemo.entitlements; path = ../AppPayDemo.entitlements; sourceTree = "<group>"; };
+		444DB2B31C8FE0EF002676DD /* FGApplePayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGApplePayHelper.h; sourceTree = "<group>"; };
+		444DB2B41C8FE0EF002676DD /* FGApplePayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGApplePayHelper.m; sourceTree = "<group>"; };
+		444DB2B61C9004A4002676DD /* FGApplePayConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGApplePayConstant.h; sourceTree = "<group>"; };
+		444DB2B71C9004A4002676DD /* FGApplePayConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGApplePayConstant.m; sourceTree = "<group>"; };
+		444DB2BC1C90094E002676DD /* FGPKPaymentRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGPKPaymentRequestFactory.h; sourceTree = "<group>"; };
+		444DB2BD1C90094E002676DD /* FGPKPaymentRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FGPKPaymentRequestFactory.m; sourceTree = "<group>"; };
+		444DB2BF1C902446002676DD /* FGApplePayHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FGApplePayHeaders.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +69,7 @@
 		444DB2991C8FD8B1002676DD /* AppPayDemo */ = {
 			isa = PBXGroup;
 			children = (
+				444DB2B21C8FE094002676DD /* ApplePay */,
 				444DB29D1C8FD8B1002676DD /* AppDelegate.h */,
 				444DB29E1C8FD8B1002676DD /* AppDelegate.m */,
 				444DB2A01C8FD8B1002676DD /* ViewController.h */,
@@ -77,6 +89,21 @@
 				444DB29B1C8FD8B1002676DD /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		444DB2B21C8FE094002676DD /* ApplePay */ = {
+			isa = PBXGroup;
+			children = (
+				444DB2B11C8FDFC4002676DD /* AppPayDemo.entitlements */,
+				444DB2BF1C902446002676DD /* FGApplePayHeaders.h */,
+				444DB2B61C9004A4002676DD /* FGApplePayConstant.h */,
+				444DB2B71C9004A4002676DD /* FGApplePayConstant.m */,
+				444DB2B31C8FE0EF002676DD /* FGApplePayHelper.h */,
+				444DB2B41C8FE0EF002676DD /* FGApplePayHelper.m */,
+				444DB2BC1C90094E002676DD /* FGPKPaymentRequestFactory.h */,
+				444DB2BD1C90094E002676DD /* FGPKPaymentRequestFactory.m */,
+			);
+			path = ApplePay;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -110,6 +137,12 @@
 				TargetAttributes = {
 					444DB2961C8FD8B1002676DD = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4AW78593E8;
+						SystemCapabilities = {
+							com.apple.OMC = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -151,6 +184,9 @@
 			files = (
 				444DB2A21C8FD8B1002676DD /* ViewController.m in Sources */,
 				444DB29F1C8FD8B1002676DD /* AppDelegate.m in Sources */,
+				444DB2BE1C90094E002676DD /* FGPKPaymentRequestFactory.m in Sources */,
+				444DB2B51C8FE0EF002676DD /* FGApplePayHelper.m in Sources */,
+				444DB2B81C9004A4002676DD /* FGApplePayConstant.m in Sources */,
 				444DB29C1C8FD8B1002676DD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -263,10 +299,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppPayDemo/AppPayDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppPayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SOHU.AppPayDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sohu.weichao.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -274,10 +314,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = AppPayDemo/AppPayDemo.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = AppPayDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = SOHU.AppPayDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sohu.weichao.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

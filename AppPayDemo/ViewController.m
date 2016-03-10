@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "FGApplePayHeaders.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+
+- (IBAction)buttonClicked:(id)sender {
+    FGApplePayHelper *applePayHelper =  [[FGApplePayHelper alloc] init];
+    PKPaymentRequest *paymentRequest = applePayHelper.paymentRequest;
+    PKPaymentAuthorizationViewController *view = [[PKPaymentAuthorizationViewController alloc]initWithPaymentRequest:paymentRequest];
+    view.delegate = applePayHelper;
+    [self presentViewController:view animated:YES completion:nil];
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
