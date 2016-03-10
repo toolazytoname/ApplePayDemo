@@ -66,9 +66,7 @@
         return nil;
     }
     if (!_paymentRequest) {
-        NSMutableArray *shippingMethods = [self shippingMethods];
-        NSMutableArray *summaryItems = [self summaryItems];
-        _paymentRequest = [FGPKPaymentRequestFactory initialPKPaymentRequestWithshippingMethods:shippingMethods summaryItems:summaryItems];
+        _paymentRequest = [FGPKPaymentRequestFactory initialPKPaymentRequestWithshippingMethods:self.shippingMethods summaryItems:self.summaryItems];
     }
     return _paymentRequest;
 }

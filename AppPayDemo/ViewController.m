@@ -10,22 +10,39 @@
 #import "FGApplePayHeaders.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) FGApplePayHelper *applePayHelper;
 @end
 
 @implementation ViewController
 
+- (FGApplePayHelper *)applePayHelper
+{
+    if (!_applePayHelper) {
+        _applePayHelper =  [[FGApplePayHelper alloc] init];
+    }
+    return _applePayHelper;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [self addPKPaymentButton];
+    
+}
+
+- (void)addPKPaymentButton
+{
+    PKPaymentButton *paymentButton = [PKPaymentButton buttonWithType:PKPaymentButtonTypeBuy style:PKPaymentButtonStyleBlack];
+    paymentButton.frame = CGRectMake(0, 20, CGRectGetWidth(paymentButton.frame), CGRectGetHeight(paymentButton.frame));
+    [paymentButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:paymentButton];
 }
 
 - (IBAction)buttonClicked:(id)sender {
-    FGApplePayHelper *applePayHelper =  [[FGApplePayHelper alloc] init];
-    PKPaymentRequest *paymentRequest = applePayHelper.paymentRequest;
-    PKPaymentAuthorizationViewController *view = [[PKPaymentAuthorizationViewController alloc]initWithPaymentRequest:paymentRequest];
-    view.delegate = applePayHelper;
-    [self presentViewController:view animated:YES completion:nil];
+    PKPaymentRequest *paymentRequest = self.applePayHelper.paymentRequest;
+    PKPaymentAuthorizationViewController *paymentAuthorizationViewController = [[PKPaymentAuthorizationViewController alloc]initWithPaymentRequest:paymentRequest];
+    paymentAuthorizationViewController.delegate = self.applePayHelper;
+    [self presentViewController:paymentAuthorizationViewController animated:YES completion:nil];
 }
 
 
