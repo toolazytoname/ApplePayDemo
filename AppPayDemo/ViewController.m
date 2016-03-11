@@ -27,13 +27,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     [self addPKPaymentButton];
-    
 }
 
 - (void)addPKPaymentButton
 {
     PKPaymentButton *paymentButton = [PKPaymentButton buttonWithType:PKPaymentButtonTypeBuy style:PKPaymentButtonStyleBlack];
-    paymentButton.frame = CGRectMake(0, 20, CGRectGetWidth(paymentButton.frame), CGRectGetHeight(paymentButton.frame));
+    paymentButton.center = self.view.center;
     [paymentButton addTarget:self action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:paymentButton];
 }

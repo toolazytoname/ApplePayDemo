@@ -27,8 +27,8 @@
     
     //设置两种配送方式
     payRequest.shippingMethods = shippingMethods;
-    
     payRequest.paymentSummaryItems = summaryItems;
+    payRequest.applicationData = [@"applicationDataValue" dataUsingEncoding:NSUTF8StringEncoding];
     return payRequest;
 }
 

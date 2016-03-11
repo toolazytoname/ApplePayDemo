@@ -146,6 +146,8 @@
     PKContact *shippingContact = payment.shippingContact;   //送货信息
     PKShippingMethod *shippingMethod = payment.shippingMethod;     //送货方式
     
+
+    
     
     NSLog(@"去服务器端校验 payToken:%@\n;billingContact:%@\n;shippingContact:%@\n;shippingMethod:%@\n;",payToken,billingContact,shippingContact,shippingMethod);
     //等待服务器返回结果后再进行系统block调用
